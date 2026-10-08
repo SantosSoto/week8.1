@@ -87,5 +87,16 @@ router.post('/readCustomerInfoAndRespond', function(req, res, next) {
 
 });
 
+// POST /api/customer: Read customer data and return JSON for the frontend.
+// The JSON middleware above makes the submitted fields available in req.body.
+router.post('/api/customer', function(req, res) {
+  const { name, email } = req.body;
+
+  res.json({
+    message: `Welcome ${name}`,
+    email: email
+  });
+});
+
 // Export this router so app.js can attach its routes to the main Express app.
 module.exports = router;
